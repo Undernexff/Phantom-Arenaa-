@@ -5,28 +5,282 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Phantom Arenaa - Play Free Fire & Win</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: #0d0d13; color: #ffffff; font-family: Arial, sans-serif; text-align: center; padding: 40px 20px; }
-        .container { max-width: 450px; margin: 0 auto; background: #161622; border: 1px solid #232335; border-radius: 24px; padding: 40px 24px; box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5); }
-        .logo-box { width: 80px; height: 80px; margin: 0 auto 24px auto; background: linear-gradient(135deg, #ff4e00, #ec9f05); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 28px; }
-        .tagline { background-color: #231912; color: #ff9f43; font-size: 12px; font-weight: 700; padding: 6px 16px; border-radius: 20px; display: inline-block; text-transform: uppercase; margin-bottom: 20px; }
-        h1 { font-size: 32px; font-weight: 800; margin-bottom: 12px; }
-        h1 span { color: #ff4e00; }
-        .description { color: #94a3b8; font-size: 15px; line-height: 1.6; margin-bottom: 35px; }
-        .btn-download { display: block; background: linear-gradient(90deg, #ff4e00 0%, #ec9f05 100%); color: #ffffff; font-size: 18px; font-weight: bold; text-decoration: none; padding: 16px 32px; border-radius: 14px; margin-bottom: 16px; box-shadow: 0px 6px 20px rgba(255, 78, 0, 0.4); }
-        .btn-how-to { display: block; background-color: #1b1b2b; color: #ffffff; font-size: 16px; font-weight: 600; text-decoration: none; padding: 14px 32px; border-radius: 14px; border: 1px solid #2d2d44; }
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+        }
+        
+        body { 
+            background-color: #0b0914; 
+            color: #ffffff; 
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+            text-align: center; 
+            padding: 40px 16px; 
+            background-image: radial-gradient(circle at top, #1e1538 0%, #0b0914 70%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container { 
+            width: 100%;
+            max-width: 440px; 
+            margin: 0 auto; 
+            background: #131124; 
+            border: 1px solid #2a224d; 
+            border-radius: 28px; 
+            padding: 35px 24px; 
+            box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.6), 0px 0px 30px rgba(138, 43, 226, 0.1); 
+        }
+
+        .logo-container {
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 20px auto;
+            border-radius: 50%;
+            padding: 4px;
+            background: linear-gradient(135deg, #a020f0, #ff007f);
+            box-shadow: 0 0 20px rgba(160, 32, 240, 0.4);
+        }
+
+        .logo-img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover;
+            border-radius: 50%;
+            background-color: #000;
+        }
+
+        .tagline { 
+            background-color: #211333; 
+            color: #d681ff; 
+            font-size: 11px; 
+            font-weight: 800; 
+            padding: 6px 18px; 
+            border-radius: 20px; 
+            display: inline-block; 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px;
+            margin-bottom: 22px; 
+            border: 1px solid #3d1f5c;
+        }
+
+        h1 { 
+            font-size: 32px; 
+            font-weight: 800; 
+            margin-bottom: 12px; 
+            letter-spacing: -0.5px;
+            color: #ffffff;
+        }
+        
+        h1 span { 
+            background: linear-gradient(135deg, #bd5fff, #ff2a93);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .description { 
+            color: #94a3b8; 
+            font-size: 14px; 
+            line-height: 1.6; 
+            margin-bottom: 35px; 
+            padding: 0 10px;
+        }
+
+        /* STYLISH DOWNLOAD BUTTON WITH SHINE ANIMATION */
+        .btn-download { 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #8a2be2 0%, #4a00e0 100%); 
+            color: #ffffff; 
+            font-size: 18px; 
+            font-weight: 700; 
+            text-decoration: none; 
+            padding: 16px 32px; 
+            border-radius: 16px; 
+            margin-bottom: 16px; 
+            box-shadow: 0px 6px 25px rgba(138, 43, 226, 0.4); 
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0px 10px 30px rgba(138, 43, 226, 0.6);
+            background: linear-gradient(135deg, #9933ff 0%, #5900f5 100%);
+        }
+
+        /* SHINE EFFECT */
+        .btn-download::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 30%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.25);
+            transform: rotate(30deg);
+            animation: shine 3s infinite linear;
+        }
+
+        @keyframes shine {
+            0% { left: -60%; }
+            30% { left: 140%; }
+            100% { left: 140%; }
+        }
+
+        .btn-how-to { 
+            display: block; 
+            background-color: #1a1630; 
+            color: #b4aed6; 
+            font-size: 15px; 
+            font-weight: 600; 
+            text-decoration: none; 
+            padding: 14px 32px; 
+            border-radius: 16px; 
+            border: 1px solid #31285c; 
+            transition: all 0.3s ease;
+        }
+
+        .btn-how-to:hover {
+            background-color: #231e42;
+            color: #ffffff;
+            border-color: #443780;
+        }
+
+        /* TOURNAMENT MODES */
+        .modes-title {
+            font-weight: 700;
+            margin: 35px 0 15px 0;
+            text-align: left;
+            padding-left: 5px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-size: 13px;
+            color: #8a2be2;
+        }
+
+        .mode-card {
+            background: #1a1730;
+            border: 1px solid #2d2654;
+            border-radius: 16px;
+            padding: 16px;
+            text-align: left;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .mode-card:hover {
+            border-color: #533eab;
+            background: #1f1b3a;
+        }
+
+        .mode-title {
+            color: #ff2a93;
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .mode-desc {
+            color: #94a3b8;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        /* STATS COUNTER */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 25px;
+            border-top: 1px solid #2a224d;
+            padding-top: 25px;
+        }
+
+        .stat-box {
+            background: #161329;
+            border: 1px solid #251e42;
+            padding: 12px;
+            border-radius: 12px;
+        }
+
+        .stat-val {
+            color: #ffcf29;
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        .stat-lbl {
+            color: #7e76a6;
+            font-size: 11px;
+            margin-top: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .footer-text {
+            font-size: 11px;
+            color: #554f73;
+            margin-top: 30px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="logo-box">PA</div>
+        <!-- LOGO IMAGE BLOCK -->
+        <div class="logo-container">
+            <img src="1618.jpg" alt="Phantom Arenaa Logo" class="logo-img">
+        </div>
+        
         <div class="tagline">DAILY TOURNAMENTS</div>
         <h1>Play. Win. <span>Repeat.</span></h1>
         <p class="description">Join Phantom Arenaa Free Fire tournaments — Low entry, Fast payouts, 100% fair play.</p>
         
         <!-- APK DOWNLOAD LINK -->
-        <a href="https://github.com/Undernexff/Phantom-Arenaa-/raw/refs/heads/main/phantom-arenaa-v2.apk" class="btn-download">⬇ Download App</a>
+        <a href="https://github.com/Undernexff/Phantom-Arenaa-/raw/refs/heads/main/phantom-arenaa-v2.apk" class="btn-download">
+            <span>⬇ Download App</span>
+        </a>
         <a href="#" class="btn-how-to">How to Play</a>
+
+        <!-- TOURNAMENT MODES -->
+        <div class="modes-title">Tournament Modes</div>
+        
+        <div class="mode-card">
+            <div class="mode-title">Per-Kill BR</div>
+            <div class="mode-desc">Earn rewards per kill. Fast-paced action matches.</div>
+        </div>
+
+        <div class="mode-card">
+            <div class="mode-title">BR Survival</div>
+            <div class="mode-desc">Top 3 players share the prize pool. Play smart, last long.</div>
+        </div>
+
+        <div class="mode-card">
+            <div class="mode-title">1v1 Duels</div>
+            <div class="mode-desc">Quick 1v1 intense matches with instant winners.</div>
+        </div>
+
+        <!-- STATS SECTION -->
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-val">100,000+</div>
+                <div class="stat-lbl">Total Users</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-val">₹7,993,989</div>
+                <div class="stat-lbl">Total Winnings</div>
+            </div>
+        </div>
+
+        <div class="footer-text">© 2026 Phantom Arenaa — All rights reserved.</div>
     </div>
 </body>
 </html>
